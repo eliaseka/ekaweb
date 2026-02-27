@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import { COMPANY } from '../data/company.js';
+
+const pageTitle = 'Vielen Dank für Ihre Nachricht';
+const pageDescription = 'Ihre Anfrage wurde erfolgreich übermittelt. Wir werden uns schnellstmöglich bei Ihnen melden.';
+---
+
+<BaseLayout 
+  title={pageTitle} 
+  description={pageDescription}
+  noindex={true}
+>
+  <Header slot="header" />
+  
+  <section class="section thanks-page" aria-labelledby="thanks-title">
+    <div class="container">
+      <div class="thanks-page__content">
+        <div class="thanks-page__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        
+        <h1 id="thanks-title" class="thanks-page__title">
+          Vielen Dank für Ihre Nachricht!
+        </h1>
+        
+        <p class="thanks-page__text">
+          Wir haben Ihre Anfrage erfolgreich erhalten und werden uns schnellstmöglich 
+          bei Ihnen melden. In dringenden Fällen erreichen Sie uns auch telefonisch.
+        </p>
+        
+        <div class="thanks-page__contact">
+          <a href={`tel:${COMPANY.contact.phoneRaw}`} class="btn btn--primary btn--large">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {COMPANY.contact.phone}
+          </a>
+          <a href="/" class="btn btn--outline btn--large">
+            Zurück zur Startseite
+          </a>
+        </div>
+        
+        <div class="thanks-page__next-steps">
+          <h2 class="thanks-page__next-title">Was passiert als Nächstes?</h2>
+          <ul class="thanks-page__steps">
+            <li class="thanks-page__step">
+              <span class="thanks-page__step-number">1</span>
+              <span class="thanks-page__step-text">Wir prüfen Ihre Anfrage innerhalb von 24 Stunden</span>
+            </li>
+            <li class="thanks-page__step">
+              <span class="thanks-page__step-number">2</span>
+              <span class="thanks-page__step-text">Sie erhalten eine persönliche Antwort von uns</span>
+            </li>
+            <li class="thanks-page__step">
+              <span class="thanks-page__step-number">3</span>
+              <span class="thanks-page__step-text">Bei Bedarf vereinbaren wir einen Beratungstermin</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <Footer slot="footer" />
+  <CookieBanner slot="cookie-banner" />
+</BaseLayout>
+
+<style>
+  .thanks-page {
+    padding-top: calc(120px + var(--space-16));
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .thanks-page__content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .thanks-page__icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--brand-2) 0%, var(--brand-2-light) 100%);
+    color: var(--white);
+    border-radius: var(--radius-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-6);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .thanks-page__title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--brand-1);
+    margin-bottom: var(--space-4);
+  }
+  
+  .thanks-page__text {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-8);
+  }
+  
+  .thanks-page__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: center;
+    margin-bottom: var(--space-12);
+  }
+  
+  @media (min-width: 640px) {
+    .thanks-page__contact {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  
+  .thanks-page__next-steps {
+    background-color: var(--gray-50);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: left;
+  }
+  
+  .thanks-page__next-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--brand-1);
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+  
+  .thanks-page__steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .thanks-page__step {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  
+  .thanks-page__step-number {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--brand-1);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    flex-shrink: 0;
+  }
+  
+  .thanks-page__step-text {
+    color: var(--text-secondary);
+  }
+</style>

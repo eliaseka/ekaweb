@@ -1,0 +1,438 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import { COMPANY } from '../data/company.js';
+
+const pageTitle = 'Datenschutzerklärung';
+const pageDescription = `Datenschutzerklärung von ${COMPANY.name}. Informationen zur Verarbeitung Ihrer personenbezogenen Daten.`;
+---
+
+<BaseLayout 
+  title={pageTitle} 
+  description={pageDescription}
+>
+  <Header slot="header" />
+  
+  <section class="section legal-page" aria-labelledby="privacy-title">
+    <div class="container">
+      <div class="legal-page__content">
+        <h1 id="privacy-title" class="legal-page__title">Datenschutzerklärung</h1>
+        
+        <div class="legal-intro">
+          <p>
+            Wir freuen uns über Ihr Interesse an unserer Website. Der Schutz Ihrer personenbezogenen 
+            Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie umfassend über den 
+            Umgang mit Ihren Daten.
+          </p>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section__title">1. Verantwortlicher</h2>
+          <div class="legal-section__content">
+            <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO):</p>
+            <p>
+              <strong>{COMPANY.name}</strong><br>
+              {COMPANY.legalForm}<br>
+              {COMPANY.owner}<br>
+              {COMPANY.address.street}<br>
+              {COMPANY.address.zip} {COMPANY.address.city}<br>
+              {COMPANY.address.country}
+            </p>
+            <p>
+              <strong>Kontakt:</strong><br>
+              Telefon: <a href={`tel:${COMPANY.contact.phoneRaw}`}>{COMPANY.contact.phone}</a><br>
+              E-Mail: <a href={`mailto:${COMPANY.contact.email}`}>{COMPANY.contact.email}</a>
+            </p>
+          </div>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section__title">2. Allgemeine Hinweise zur Datenverarbeitung</h2>
+          <div class="legal-section__content">
+            <h3 class="legal-subsection__title">2.1 Umfang der Verarbeitung</h3>
+            <p>
+              Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies 
+              zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen 
+              erforderlich ist. Die Verarbeitung personenbezogener Daten erfolgt regelmäßig nur nach 
+              Einwilligung des Nutzers oder soweit eine Rechtsvorschrift dies erlaubt.
+            </p>
+            
+            <h3 class="legal-subsection__title">2.2 Rechtsgrundlagen</h3>
+            <p>
+              Art. 6 Abs. 1 lit. a DSGVO dient uns als Rechtsgrundlage für Verarbeitungsvorgänge, 
+              bei denen wir eine Einwilligung für einen bestimmten Verarbeitungszweck einholen.
+            </p>
+            <p>
+              Ist die Verarbeitung zur Erfüllung eines Vertrags oder zur Durchführung vorvertraglicher 
+              Maßnahmen erforderlich, dient Art. 6 Abs. 1 lit. b DSGVO als Rechtsgrundlage.
+            </p>
+            <p>
+              Liegt eine rechtliche Verpflichtung vor, die eine Verarbeitung erfordert, dient 
+              Art. 6 Abs. 1 lit. c DSGVO als Rechtsgrundlage.
+            </p>
+            <p>
+              Für den Fall, dass lebenswichtige Interessen der betroffenen Person eine Verarbeitung 
+              erforderlich machen, dient Art. 6 Abs. 1 lit. d DSGVO als Rechtsgrundlage.
+            </p>
+            <p>
+              Ist die Verarbeitung zur Wahrung eines berechtigten Interesses unseres Unternehmens 
+              oder eines Dritten erforderlich und überwiegen die Interessen, Grundrechte und 
+              Grundfreiheiten des Betroffenen das erstgenannte Interesse nicht, dient Art. 6 Abs. 1 
+              lit. f DSGVO als Rechtsgrundlage.
+            </p>
+            
+            <h3 class="legal-subsection__title">2.3 Datenlöschung und Speicherdauer</h3>
+            <p>
+              Die personenbezogenen Daten der betroffenen Person werden gelöscht oder gesperrt, 
+              sobald der Zweck der Speicherung entfällt. Eine Speicherung kann darüber hinaus 
+              erfolgen, wenn dies durch den europäischen oder nationalen Gesetzgeber in 
+              unionsrechtlichen Verordnungen, Gesetzen oder sonstigen Vorschriften vorgesehen wurde.
+            </p>
+          </div>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section__title">3. Bereitstellung der Website</h2>
+          <div class="legal-section__content">
+            <h3 class="legal-subsection__title">3.1 Beschreibung und Umfang der Datenverarbeitung</h3>
+            <p>
+              Bei jedem Aufruf unserer Website werden durch den Browser automatisch Informationen 
+              an den Server unserer Website gesendet. Diese Informationen werden temporär in einem 
+              Logfile gespeichert:
+            </p>
+            <ul class="legal-list">
+              <li>IP-Adresse des anfragenden Rechners</li>
+              <li>Datum und Uhrzeit des Zugriffs</li>
+              <li>Name und URL der abgerufenen Datei</li>
+              <li>Website, von der aus der Zugriff erfolgt (Referrer-URL)</li>
+              <li>Verwendeter Browser und ggf. das Betriebssystem</li>
+            </ul>
+            
+            <h3 class="legal-subsection__title">3.2 Rechtsgrundlage und Zweck</h3>
+            <p>
+              Rechtsgrundlage für die vorübergehende Speicherung ist Art. 6 Abs. 1 lit. f DSGVO. 
+              Die Speicherung in Logfiles erfolgt, um die Funktionsfähigkeit der Website 
+              sicherzustellen, die Sicherheit zu gewährleisten und technische Probleme zu diagnostizieren.
+            </p>
+            
+            <h3 class="legal-subsection__title">3.3 Speicherdauer</h3>
+            <p>
+              Die Daten werden nach 30 Tagen gelöscht, soweit keine weitere Speicherung zu 
+              Beweiszwecken erforderlich ist.
+            </p>
+          </div>
+        </div>
+        
+        <div class="legal-section" id="formular">
+          <h2 class="legal-section__title">4. Kontaktformular und E-Mail-Kontakt</h2>
+          <div class="legal-section__content">
+            <h3 class="legal-subsection__title">4.1 Beschreibung und Umfang der Datenverarbeitung</h3>
+            <p>
+              Auf unserer Website ist ein Kontaktformular vorhanden, welches für die elektronische 
+              Kontaktaufnahme genutzt werden kann. Nimmt ein Nutzer diese Möglichkeit wahr, so werden 
+              die in der Eingabemaske eingegeben Daten an uns übermittelt und gespeichert:
+            </p>
+            <ul class="legal-list">
+              <li>Name</li>
+              <li>Firma (optional)</li>
+              <li>E-Mail-Adresse</li>
+              <li>Telefonnummer (optional)</li>
+              <li>Betreff</li>
+              <li>Nachricht</li>
+            </ul>
+            <p>
+              Zum Zeitpunkt der Absendung der Nachricht werden zudem folgende Daten gespeichert:
+            </p>
+            <ul class="legal-list">
+              <li>Datum und Uhrzeit der Übermittlung</li>
+              <li>IP-Adresse</li>
+            </ul>
+            
+            <h3 class="legal-subsection__title">4.2 Verwendung von Web3Forms</h3>
+            <p>
+              Für die Verarbeitung unserer Kontaktformulare nutzen wir den Dienst <strong>Web3Forms</strong> 
+              (Betreiber: Web3Forms, https://web3forms.com/). Bei Absenden des Formulars werden die 
+              eingegebenen Daten an die Server von Web3Forms übermittelt und von dort per E-Mail an uns 
+              weitergeleitet.
+            </p>
+            <p>
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an 
+              einer funktionierenden Kontaktaufnahme).
+            </p>
+            <p>
+              Weitere Informationen zum Datenschutz bei Web3Forms finden Sie unter: 
+              <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer">
+                https://web3forms.com/privacy
+              </a>
+            </p>
+            
+            <h3 class="legal-subsection__title">4.3 Rechtsgrundlage und Zweck</h3>
+            <p>
+              Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) 
+              sowie Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen).
+            </p>
+            <p>
+              Die Verarbeitung der Daten erfolgt ausschließlich zur Bearbeitung Ihrer Anfrage. 
+              Im Falle von Kontaktaufnahme per E-Mail liegt hieran auch das erforderliche berechtigte 
+              Interesse an der Verarbeitung der Daten.
+            </p>
+            
+            <h3 class="legal-subsection__title">4.4 Speicherdauer</h3>
+            <p>
+              Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung 
+              nicht mehr erforderlich sind. Für die personenbezogenen Daten aus dem Kontaktformular 
+              und diejenigen, die per E-Mail übersandt wurden, ist dies dann der Fall, wenn die 
+              jeweilige Konversation mit dem Nutzer beendet ist. Beendet ist die Konversation dann, 
+              wenn sich aus den Umständen entnehmen lässt, dass der betroffene Sachverhalt 
+              abschließend geklärt ist.
+            </p>
+            
+            <h3 class="legal-subsection__title">4.5 Widerspruchs- und Beseitigungsmöglichkeit</h3>
+            <p>
+              Der Nutzer hat jederzeit die Möglichkeit, seine Einwilligung zur Verarbeitung der 
+              personenbezogenen Daten zu widerrufen. Nimmt der Nutzer per E-Mail Kontakt mit uns auf, 
+              so kann er der Speicherung seiner personenbezogenen Daten jederzeit widersprechen. 
+              In einem solchen Fall kann die Konversation nicht fortgeführt werden.
+            </p>
+          </div>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section__title">5. Cookies</h2>
+          <div class="legal-section__content">
+            <h3 class="legal-subsection__title">5.1 Beschreibung und Umfang der Datenverarbeitung</h3>
+            <p>
+              Unsere Website verwendet Cookies. Bei Cookies handelt es sich um Textdateien, die im 
+              Internetbrowser bzw. vom Internetbrowser auf dem Computersystem des Nutzers gespeichert 
+              werden. Ruft ein Nutzer eine Website auf, so kann ein Cookie auf dem Betriebssystem des 
+              Nutzers gespeichert werden.
+            </p>
+            
+            <h3 class="legal-subsection__title">5.2 Arten von Cookies</h3>
+            <p><strong>Notwendige Cookies:</strong></p>
+            <p>
+              Diese Cookies sind für den Betrieb der Website unbedingt erforderlich und können nicht 
+              deaktiviert werden. Sie ermöglichen grundlegende Funktionen wie z.B. die Speicherung 
+              Ihrer Cookie-Einstellungen.
+            </p>
+            
+            <p><strong>Analyse-Cookies:</strong></p>
+            <p>
+              Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, 
+              indem sie Informationen anonym sammeln. Sie werden nur mit Ihrer Einwilligung gesetzt.
+            </p>
+            
+            <p><strong>Marketing-Cookies:</strong></p>
+            <p>
+              Diese Cookies werden verwendet, um Besuchern relevante Werbung anzuzeigen. Sie werden 
+              nur mit Ihrer Einwilligung gesetzt.
+            </p>
+            
+            <h3 class="legal-subsection__title">5.3 Cookie-Einstellungen verwalten</h3>
+            <p>
+              Sie können Ihre Cookie-Einstellungen jederzeit über den Link „Cookie-Einstellungen" 
+              im Footer unserer Website ändern oder über den folgenden Button:
+            </p>
+            <button 
+              type="button" 
+              class="btn btn--secondary btn--small"
+              onclick="window.dispatchEvent(new CustomEvent('openCookieSettings'))"
+            >
+              Cookie-Einstellungen öffnen
+            </button>
+            
+            <h3 class="legal-subsection__title">5.4 Rechtsgrundlage</h3>
+            <p>
+              Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten unter Verwendung von 
+              technisch notwendigen Cookies ist Art. 6 Abs. 1 lit. f DSGVO. Für alle anderen Cookies 
+              ist die Rechtsgrundlage Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
+            </p>
+          </div>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section__title">6. Rechte der betroffenen Person</h2>
+          <div class="legal-section__content">
+            <p>Werden Ihre personenbezogenen Daten verarbeitet, sind Sie Betroffener im Sinne der DSGVO 
+            und es stehen Ihnen folgende Rechte zu:</p>
+            
+            <h3 class="legal-subsection__title">6.1 Auskunftsrecht (Art. 15 DSGVO)</h3>
+            <p>
+              Sie können von dem Verantwortlichen eine Bestätigung darüber verlangen, ob 
+              personenbezogene Daten, die Sie betreffen, von uns verarbeitet werden.
+            </p>
+            
+            <h3 class="legal-subsection__title">6.2 Berichtigungsrecht (Art. 16 DSGVO)</h3>
+            <p>
+              Sie haben das Recht, die unverzügliche Berichtigung Sie betreffender unrichtiger 
+              personenbezogener Daten zu verlangen.
+            </p>
+            
+            <h3 class="legal-subsection__title">6.3 Löschungsrecht (Art. 17 DSGVO)</h3>
+            <p>
+              Sie haben das Recht, von dem Verantwortlichen zu verlangen, dass Sie betreffende 
+              personenbezogene Daten unverzüglich gelöscht werden.
+            </p>
+            
+            <h3 class="legal-subsection__title">6.4 Einschränkung der Verarbeitung (Art. 18 DSGVO)</h3>
+            <p>
+              Sie haben das Recht, die Einschränkung der Verarbeitung zu verlangen.
+            </p>
+            
+            <h3 class="legal-subsection__title">6.5 Datenübertragbarkeit (Art. 20 DSGVO)</h3>
+            <p>
+              Sie haben das Recht, die Sie betreffenden personenbezogenen Daten in einem 
+              strukturierten, gängigen und maschinenlesbaren Format zu erhalten.
+            </p>
+            
+            <h3 class="legal-subsection__title">6.6 Widerspruchsrecht (Art. 21 DSGVO)</h3>
+            <p>
+              Sie haben das Recht, aus Gründen, die sich aus ihrer besonderen Situation ergeben, 
+              jederzeit gegen die Verarbeitung Sie betreffender personenbezogener Daten Widerspruch 
+              einzulegen.
+            </p>
+            
+            <h3 class="legal-subsection__title">6.7 Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO)</h3>
+            <p>
+              Sie haben das Recht, Ihre datenschutzrechtliche Einwilligungserklärung jederzeit zu 
+              widerrufen. Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund 
+              der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht berührt.
+            </p>
+            
+            <h3 class="legal-subsection__title">6.8 Beschwerderecht (Art. 77 DSGVO)</h3>
+            <p>
+              Unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs 
+              steht Ihnen das Recht auf Beschwerde bei einer Aufsichtsbehörde zu.
+            </p>
+          </div>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section__title">7. Änderungen der Datenschutzerklärung</h2>
+          <div class="legal-section__content">
+            <p>
+              Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den 
+              aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen 
+              in der Datenschutzerklärung umzusetzen.
+            </p>
+          </div>
+        </div>
+        
+        <div class="legal-section">
+          <h2 class="legal-section__title">8. Fragen zum Datenschutz</h2>
+          <div class="legal-section__content">
+            <p>
+              Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail an 
+              <a href={`mailto:${COMPANY.contact.email}`}>{COMPANY.contact.email}</a>.
+            </p>
+          </div>
+        </div>
+        
+        <p class="legal-page__date">
+          <strong>Stand:</strong> Februar 2026
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <Footer slot="footer" />
+  <CookieBanner slot="cookie-banner" />
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding-top: calc(120px + var(--space-16));
+  }
+  
+  .legal-page__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .legal-page__title {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--brand-1);
+    margin-bottom: var(--space-8);
+    text-align: center;
+  }
+  
+  .legal-intro {
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-8);
+    border-left: 4px solid var(--brand-2);
+  }
+  
+  .legal-intro p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+  
+  .legal-section {
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .legal-section:last-of-type {
+    border-bottom: none;
+  }
+  
+  .legal-section__title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--brand-1);
+    margin-bottom: var(--space-4);
+  }
+  
+  .legal-subsection__title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-2);
+  }
+  
+  .legal-section__content {
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+  
+  .legal-section__content p {
+    margin-bottom: var(--space-3);
+  }
+  
+  .legal-section__content a {
+    color: var(--brand-2);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  
+  .legal-section__content a:hover {
+    color: var(--brand-2-dark);
+  }
+  
+  .legal-list {
+    list-style: disc;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+  
+  .legal-list li {
+    margin-bottom: var(--space-1);
+  }
+  
+  .legal-page__date {
+    text-align: center;
+    color: var(--text-light);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-8);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-color);
+  }
+</style>

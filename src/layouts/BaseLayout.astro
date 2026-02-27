@@ -1,0 +1,156 @@
+---
+import '../styles/global.css';
+import { COMPANY } from '../data/company.js';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  canonical = Astro.url.pathname,
+  ogImage = '/images/hero.jpeg',
+  noindex = false
+} = Astro.props;
+
+const fullTitle = title === COMPANY.name ? title : `${title} | ${COMPANY.name}`;
+const canonicalUrl = `${COMPANY.web.url}${canonical}`;
+const ogImageUrl = `${COMPANY.web.url}${ogImage}`;
+
+// LocalBusiness Schema
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": COMPANY.name,
+  "image": ogImageUrl,
+  "url": COMPANY.web.url,
+  "telephone": COMPANY.contact.phone,
+  "email": COMPANY.contact.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": COMPANY.address.street,
+    "addressLocality": COMPANY.address.city,
+    "postalCode": COMPANY.address.zip,
+    "addressCountry": COMPANY.address.country
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "52.1628",
+    "longitude": "10.5347"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ],
+  "priceRange": "€€",
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "52.1628",
+      "longitude": "10.5347"
+    },
+    "geoRadius": "50000"
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content={Astro.generator}>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <!-- Primary Meta Tags -->
+  <title>{fullTitle}</title>
+  <meta name="title" content={fullTitle}>
+  <meta name="description" content={description}>
+  <meta name="author" content={COMPANY.owner}>
+  <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}>
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalUrl}>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={ogImageUrl}>
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content={COMPANY.name}>
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content={canonicalUrl}>
+  <meta property="twitter:title" content={fullTitle}>
+  <meta property="twitter:description" content={description}>
+  <meta property="twitter:image" content={ogImageUrl}>
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#103959">
+  <meta name="msapplication-TileColor" content="#103959">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://api.web3forms.com">
+  
+  <!-- Sitemap -->
+  <link rel="sitemap" href="/sitemap-index.xml">
+  
+  <!-- Skip Link for Accessibility -->
+  <style>
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--brand-1);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      z-index: 9999;
+      transition: top 150ms ease;
+    }
+    .skip-link:focus {
+      top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+  
+  <slot name="header" />
+  
+  <main id="main-content">
+    <slot />
+  </main>
+  
+  <slot name="footer" />
+  <slot name="cookie-banner" />
+  
+  <script>
+    // Add loaded class for animations
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+</html>

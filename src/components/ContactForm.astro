@@ -1,0 +1,519 @@
+---
+import { COMPANY, SERVICES } from '../data/company.js';
+---
+
+<section id="kontakt" class="section" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact__grid">
+      <!-- Contact Info -->
+      <div class="contact__info">
+        <h2 id="contact-title" class="section-title contact__title">Kontaktieren Sie uns</h2>
+        <p class="contact__subtitle">
+          Haben Sie Fragen oder möchten Sie ein unverbindliches Angebot? 
+          Wir sind für Sie da – telefonisch, per WhatsApp oder über das Formular.
+        </p>
+        
+        <div class="contact__methods">
+          <a href={`tel:${COMPANY.contact.phoneRaw}`} class="contact__method">
+            <div class="contact__method-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact__method-content">
+              <span class="contact__method-label">Telefon</span>
+              <span class="contact__method-value">{COMPANY.contact.phone}</span>
+            </div>
+          </a>
+          
+          <a href={COMPANY.contact.whatsappLink} class="contact__method contact__method--whatsapp" target="_blank" rel="noopener noreferrer">
+            <div class="contact__method-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </div>
+            <div class="contact__method-content">
+              <span class="contact__method-label">WhatsApp</span>
+              <span class="contact__method-value">Jetzt chatten</span>
+            </div>
+          </a>
+          
+          <a href={`mailto:${COMPANY.contact.email}`} class="contact__method">
+            <div class="contact__method-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div class="contact__method-content">
+              <span class="contact__method-label">E-Mail</span>
+              <span class="contact__method-value">{COMPANY.contact.email}</span>
+            </div>
+          </a>
+          
+          <div class="contact__method contact__method--address">
+            <div class="contact__method-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact__method-content">
+              <span class="contact__method-label">Adresse</span>
+              <span class="contact__method-value">
+                {COMPANY.address.street}<br>
+                {COMPANY.address.zip} {COMPANY.address.city}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="contact__form-wrapper">
+        <form 
+          class="contact__form" 
+          id="contact-form"
+          action="https://api.web3forms.com/submit" 
+          method="POST"
+          aria-label="Kontaktformular"
+        >
+          <!-- Web3Forms Configuration -->
+          <input type="hidden" name="access_key" value={import.meta.env.WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE'} />
+          <input type="hidden" name="subject" value="Neue Anfrage von EKA Facility Management Website" />
+          <input type="hidden" name="from_name" value="EKA Facility Management Website" />
+          <input type="hidden" name="redirect" value={`${COMPANY.web.url}/danke`} />
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+          
+          <div class="form__grid">
+            <div class="form__group">
+              <label for="name" class="form__label">
+                Name <span class="form__required" aria-label="Pflichtfeld">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="form__input" 
+                required 
+                autocomplete="name"
+                aria-required="true"
+                placeholder="Max Mustermann"
+              />
+            </div>
+            
+            <div class="form__group">
+              <label for="company" class="form__label">
+                Firma
+              </label>
+              <input 
+                type="text" 
+                id="company" 
+                name="company" 
+                class="form__input"
+                autocomplete="organization"
+                placeholder="Muster GmbH"
+              />
+            </div>
+          </div>
+          
+          <div class="form__grid">
+            <div class="form__group">
+              <label for="email" class="form__label">
+                E-Mail <span class="form__required" aria-label="Pflichtfeld">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form__input" 
+                required 
+                autocomplete="email"
+                aria-required="true"
+                placeholder="max@beispiel.de"
+              />
+            </div>
+            
+            <div class="form__group">
+              <label for="phone" class="form__label">
+                Telefon
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                class="form__input"
+                autocomplete="tel"
+                placeholder="+49 123 456789"
+              />
+            </div>
+          </div>
+          
+          <div class="form__group">
+            <label for="subject" class="form__label">
+              Betreff <span class="form__required" aria-label="Pflichtfeld">*</span>
+            </label>
+            <select 
+              id="subject" 
+              name="subject" 
+              class="form__select" 
+              required
+              aria-required="true"
+            >
+              <option value="" disabled selected>Bitte wählen...</option>
+              {SERVICES.map((service) => (
+                <option value={service.shortTitle}>{service.title}</option>
+              ))}
+              <option value="Sonstiges">Sonstiges</option>
+            </select>
+          </div>
+          
+          <div class="form__group">
+            <label for="message" class="form__label">
+              Nachricht <span class="form__required" aria-label="Pflichtfeld">*</span>
+            </label>
+            <textarea 
+              id="message" 
+              name="message" 
+              class="form__textarea" 
+              rows="5" 
+              required
+              aria-required="true"
+              placeholder="Beschreiben Sie kurz Ihr Anliegen..."
+            ></textarea>
+          </div>
+          
+          <div class="form__group form__group--checkbox">
+            <input 
+              type="checkbox" 
+              id="privacy" 
+              name="privacy" 
+              class="form__checkbox" 
+              required
+              aria-required="true"
+            />
+            <label for="privacy" class="form__checkbox-label">
+              Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten gemäß DSGVO zu. 
+              <span class="form__required" aria-label="Pflichtfeld">*</span>
+            </label>
+          </div>
+          
+          <button type="submit" class="btn btn--primary btn--large form__submit">
+            Nachricht senden
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+          
+          <!-- Success Message -->
+          <div class="form__success" id="form-success" role="status" aria-live="polite" hidden>
+            <div class="form__success-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h3>Vielen Dank für Ihre Nachricht!</h3>
+              <p>Wir haben Ihre Anfrage erhalten und werden uns schnellstmöglich bei Ihnen melden.</p>
+            </div>
+          </div>
+          
+          <!-- Error Message -->
+          <div class="form__error" id="form-error" role="alert" hidden>
+            <p>Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns telefonisch.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact__grid {
+    display: grid;
+    gap: var(--space-12);
+    align-items: start;
+  }
+  
+  @media (min-width: 1024px) {
+    .contact__grid {
+      grid-template-columns: 1fr 1.2fr;
+    }
+  }
+  
+  .contact__info {
+    max-width: 500px;
+  }
+  
+  .contact__title {
+    text-align: left;
+    margin-bottom: var(--space-4);
+  }
+  
+  .contact__subtitle {
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-8);
+  }
+  
+  .contact__methods {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .contact__method {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    transition: background-color var(--transition-fast);
+  }
+  
+  .contact__method:hover {
+    background-color: var(--gray-200);
+  }
+  
+  .contact__method--whatsapp {
+    background-color: #25D366;
+    color: var(--white);
+  }
+  
+  .contact__method--whatsapp:hover {
+    background-color: #128C7E;
+  }
+  
+  .contact__method-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-1);
+    flex-shrink: 0;
+  }
+  
+  .contact__method--whatsapp .contact__method-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+  }
+  
+  .contact__method-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact__method-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+  }
+  
+  .contact__method--whatsapp .contact__method-label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .contact__method-value {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  
+  .contact__method--whatsapp .contact__method-value {
+    color: var(--white);
+  }
+  
+  .contact__form-wrapper {
+    background-color: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  
+  .form__grid {
+    display: grid;
+    gap: var(--space-5);
+  }
+  
+  @media (min-width: 640px) {
+    .form__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .form__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .form__label {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  
+  .form__required {
+    color: var(--brand-2);
+  }
+  
+  .form__input,
+  .form__select,
+  .form__textarea {
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    background-color: var(--white);
+  }
+  
+  .form__input:focus,
+  .form__select:focus,
+  .form__textarea:focus {
+    outline: none;
+    border-color: var(--brand-2);
+    box-shadow: 0 0 0 3px rgba(172, 4, 81, 0.1);
+  }
+  
+  .form__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .form__group--checkbox {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  
+  .form__checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 2px;
+    accent-color: var(--brand-2);
+    cursor: pointer;
+  }
+  
+  .form__checkbox-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+  
+  .form__checkbox-label a {
+    color: var(--brand-2);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  
+  .form__checkbox-label a:hover {
+    color: var(--brand-2-dark);
+  }
+  
+  .form__submit {
+    width: 100%;
+  }
+  
+  .form__success,
+  .form__error {
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  
+  .form__success {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  
+  .form__success-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  
+  .form__success h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .form__success p {
+    margin: 0;
+    color: #166534;
+  }
+  
+  .form__error {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .form__error p {
+    margin: 0;
+  }
+  
+  .contact__form--submitted .form__grid,
+  .contact__form--submitted .form__group,
+  .contact__form--submitted .form__privacy-notice,
+  .contact__form--submitted .form__submit {
+    display: none;
+  }
+  
+  .contact__form--submitted .form__success {
+    display: block !important;
+  }
+  
+  .contact__form--error .form__error {
+    display: block !important;
+  }
+</style>
+
+<script>
+  // Form handling
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('form-success');
+  const errorMessage = document.getElementById('form-error');
+  
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Reset states
+      errorMessage.hidden = true;
+      
+      const submitBtn = form.querySelector('.form__submit');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Wird gesendet...';
+      
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (response.ok) {
+          form.classList.add('contact__form--submitted');
+          successMessage.hidden = false;
+          
+          // Scroll to success message
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Track conversion (only if analytics consent given)
+          if (window.cookieConsent && window.cookieConsent.analytics) {
+            // Google Analytics or other tracking
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'form_submit', {
+                event_category: 'contact',
+                event_label: 'contact_form'
+              });
+            }
+          }
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        console.error('Form error:', error);
+        form.classList.add('contact__form--error');
+        errorMessage.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+  }
+</script>
