@@ -1,0 +1,223 @@
+---
+import { SERVICES } from '../data/company.js';
+
+// Icon mapping (fallback if no image)
+const icons = {
+  building: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>',
+  sparkles: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>',
+  leaf: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>',
+  snowflake: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>'
+};
+
+// Image mapping for each service
+const serviceImages = {
+  'facility-management': '/images/leistung1.jpeg',
+  'gebaeudereinigung': '/images/leistung2.jpeg',
+  'gartenpflege': '/images/leistung3.jpeg',
+  'winterdienst': '/images/leistung4.jpeg'
+};
+---
+
+<section id="leistungen" class="section" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="services-title" class="section-title">Unsere Leistungen</h2>
+      <p class="section-subtitle">
+        Maßgeschneiderte Facility-Management-Lösungen für Ihre Immobilien. 
+        Von der technischen Betreuung bis zur Winterdienst – wir sind Ihr zuverlässiger Partner.
+      </p>
+    </div>
+    
+    <div class="services__grid">
+      {SERVICES.map((service, index) => (
+        <article class="service-card" data-aos="fade-up" data-aos-delay={index * 100}>
+          <div class="service-card__image-wrapper">
+            <img 
+              src={serviceImages[service.id]} 
+              alt={service.title}
+              class="service-card__image"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <!-- Fallback Icon if image fails -->
+            <div class="service-card__icon-fallback" style="display: none;">
+              <Fragment set:html={icons[service.icon]} />
+            </div>
+          </div>
+          <div class="service-card__content">
+            <h3 class="service-card__title">{service.title}</h3>
+            <p class="service-card__description">{service.description}</p>
+            <ul class="service-card__benefits">
+              {service.benefits.map((benefit) => (
+                <li class="service-card__benefit">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="#kontakt" class="service-card__link" aria-label={`${service.title} anfragen`}>
+              <span>Angebot anfragen</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+    
+    <div class="services__cta">
+      <p class="services__cta-text">
+        Benötigen Sie eine individuelle Lösung für Ihr Objekt?
+      </p>
+      <a href="#kontakt" class="btn btn--secondary btn--large">
+        Unverbindlich beraten lassen
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services__grid {
+    display: grid;
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+  
+  @media (min-width: 640px) {
+    .services__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .services__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .service-card {
+    background-color: var(--white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .service-card__image-wrapper {
+    position: relative;
+    aspect-ratio: 16/10;
+    background-color: var(--gray-200);
+    overflow: hidden;
+  }
+  
+  .service-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+  
+  .service-card:hover .service-card__image {
+    transform: scale(1.05);
+  }
+  
+  .service-card__icon-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-1-light) 100%);
+    color: var(--white);
+  }
+  
+  .service-card__content {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .service-card__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--brand-1);
+    margin-bottom: var(--space-3);
+  }
+  
+  .service-card__description {
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-4);
+  }
+  
+  .service-card__benefits {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .service-card__benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+  }
+  
+  .service-card__benefit svg {
+    color: var(--brand-2);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  .service-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--brand-2);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    transition: gap var(--transition-fast);
+    margin-top: auto;
+  }
+  
+  .service-card__link:hover {
+    gap: var(--space-3);
+  }
+  
+  .services__cta {
+    text-align: center;
+    padding: var(--space-8);
+    background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-1-light) 100%);
+    border-radius: var(--radius-xl);
+    color: var(--white);
+  }
+  
+  .services__cta-text {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+  }
+  
+  .services__cta .btn {
+    background-color: var(--white);
+    color: var(--brand-1);
+    border-color: var(--white);
+  }
+  
+  .services__cta .btn:hover {
+    background-color: var(--gray-100);
+    border-color: var(--gray-100);
+  }
+</style>

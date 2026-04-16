@@ -1,0 +1,249 @@
+---
+import { STATS, TARGET_GROUPS } from '../data/company.js';
+---
+
+<section id="trust" class="section section--alt" aria-labelledby="trust-title">
+  <div class="container">
+    <!-- Stats -->
+    <div class="trust__stats">
+      <div class="section-header">
+        <h2 id="trust-title" class="section-title">Vertrauen durch Erfahrung</h2>
+        <p class="section-subtitle">
+          Zahlen, die für sich sprechen.
+        </p>
+      </div>
+      
+      <div class="stats__grid">
+        {STATS.map((stat) => (
+          <div class="stat-card">
+            <span class="stat-card__value">{stat.value}</span>
+            <span class="stat-card__label">{stat.label}</span>
+            {stat.description && (
+              <span class="stat-card__description">{stat.description}</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Target Groups -->
+    <div class="trust__target-groups">
+      <h3 class="trust__target-title">Unsere Zielgruppen</h3>
+      <div class="target-groups__grid">
+        {TARGET_GROUPS.map((group) => (
+          <div class="target-group-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>{group}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Trust Signals -->
+    <div class="trust__signals">
+      <h3 class="trust__signals-title">Warum unsere Kunden uns vertrauen</h3>
+      <div class="trust__signals-grid">
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4 class="trust-signal__title">Zuverlässigkeit</h4>
+          <p class="trust-signal__text">Termintreue und konstante Qualität sind unsere Markenzeichen.</p>
+        </div>
+        
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+          </div>
+          <h4 class="trust-signal__title">Flexibilität</h4>
+          <p class="trust-signal__text">Wir passen uns Ihren Bedürfnissen und Zeitfenstern an.</p>
+        </div>
+        
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20"/></svg>
+          </div>
+          <h4 class="trust-signal__title">Transparenz</h4>
+          <p class="trust-signal__text">Klare Kommunikation und nachvollziehbare Kosten.</p>
+        </div>
+        
+        <div class="trust-signal">
+          <div class="trust-signal__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <h4 class="trust-signal__title">Qualität</h4>
+          <p class="trust-signal__text">Geprüftes Fachpersonal und moderne Ausrüstung.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust__placeholder-hint {
+    color: var(--brand-2);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+  }
+  
+  .trust__stats {
+    margin-bottom: var(--space-16);
+  }
+  
+  .stats__grid {
+    display: grid;
+    gap: var(--space-6);
+    margin-top: var(--space-10);
+  }
+  
+  @media (min-width: 640px) {
+    .stats__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .stats__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .stat-card {
+    background-color: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border-bottom: 4px solid var(--brand-2);
+    transition: transform var(--transition-normal);
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .stat-card__value {
+    display: block;
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    color: var(--brand-1);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+  
+  .stat-card__label {
+    display: block;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+  }
+  
+  .stat-card__description {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--gray-400);
+  }
+  
+  .trust__target-groups {
+    margin-bottom: var(--space-16);
+    text-align: center;
+  }
+  
+  .trust__target-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--brand-1);
+    margin-bottom: var(--space-6);
+  }
+  
+  .target-groups__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+  
+  .target-group-card {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background-color: var(--white);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: box-shadow var(--transition-fast);
+  }
+  
+  .target-group-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .target-group-card svg {
+    color: var(--brand-2);
+    flex-shrink: 0;
+  }
+  
+  .trust__signals {
+    text-align: center;
+  }
+  
+  .trust__signals-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--brand-1);
+    margin-bottom: var(--space-8);
+  }
+  
+  .trust__signals-grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+  
+  @media (min-width: 640px) {
+    .trust__signals-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .trust__signals-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .trust-signal {
+    background-color: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .trust-signal__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: linear-gradient(135deg, var(--brand-2) 0%, var(--brand-2-light) 100%);
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-4);
+  }
+  
+  .trust-signal__title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--brand-1);
+    margin-bottom: var(--space-2);
+  }
+  
+  .trust-signal__text {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+  }
+</style>
