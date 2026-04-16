@@ -14,11 +14,11 @@ export const COMPANY = {
     country: 'Deutschland'
   },
   contact: {
-    phone: '+49 176 41239007',
-    phoneRaw: '+4917641239007',
+    phone: '+49 1522 6466267',
+    phoneRaw: '+4915226466267',
     email: 'info@eka-fm.de',
-    whatsapp: '+49 176 41239007',
-    whatsappLink: 'https://wa.me/4917641239007'
+    whatsapp: '+49 1522 6466267',
+    whatsappLink: 'https://wa.me/4915226466267'
   },
   web: {
     url: 'https://eka-facility.de',
